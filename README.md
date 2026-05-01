@@ -3,8 +3,8 @@ A full-stack web application designed to help teams create projects, assign task
 
 
 ## 🚀 Live Demo
-- **Live URL (Railway):** 
-- **Demo Video:** [Insert your YouTube/Drive Video Link Here]
+- **Live URL (Railway):** https://etharaaiassignment-production-9c10.up.railway.app/
+- **Demo Video:** 
 
 
 ## ✨ Key Features
