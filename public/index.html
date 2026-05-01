@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 620px;
+            margin: auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            margin: 20px 0 10px;
+            color: #333;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .task-card {
+            border: 1px solid #ddd;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        .task-card button {
+            width: auto;
+            padding: 6px 12px;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .badge {
+            background: #007bff;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 13px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+
+        #auth-msg {
+            margin-top: 10px;
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box" id="auth-section">
+    <h2>Task Manager</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <select id="role">
+        <option value="member">Member</option>
+        <option value="admin">Admin</option>
+    </select>
+    <button onclick="login()">Login</button>
+    <button onclick="register()" style="background:#28a745;">Sign Up</button>
+    <p id="auth-msg"></p>
+</div>
+
+<div class="box hidden" id="dashboard-section">
+    <h2>Dashboard</h2>
+    <p>Logged in as: <strong id="user-display"></strong></p>
+    <p>Your Code: <span class="badge" id="user-code-display"></span></p>
+    <br>
+    <button onclick="logout()" style="background:#dc3545;">Logout</button>
+
+    <hr>
+
+    <div id="admin-controls" class="hidden">
+        <h3>Create Project</h3>
+        <input type="text" id="proj-name" placeholder="Project name">
+        <button onclick="createProject()">Create</button>
+
+        <h3>Assign Task</h3>
+        <input type="text" id="task-title" placeholder="Task title">
+        <input type="text" id="task-proj-name" placeholder="Project name (exact)">
+        <input type="text" id="task-user-code" placeholder="Member's user code">
+        <input type="date" id="task-date">
+        <button onclick="createTask()">Assign Task</button>
+
+        <hr>
+    </div>
+
+    <h3>Tasks <button onclick="loadTasks()" style="width:auto; padding:5px 10px; font-size:13px;">Refresh</button></h3>
+    <div id="tasks-container"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
